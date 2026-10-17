@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Looking for free WiFi? You just scanned a random QR code. Learn how attackers use tempting QR codes to steal passwords, and 5 rules to stay safe on campus.">
+  <meta name="theme-color" content="#0B3D2E">
+  
+  <!-- Open Graph / Social Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Think Before You Scan | GMSA-KNUST Cybersecurity Month">
+  <meta property="og:description" content="Looking for free WiFi? You just scanned a random QR code. Discover how to stay safe from malicious QR codes on campus.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Think Before You Scan | GMSA-KNUST Cybersecurity Month">
+  <meta name="twitter:description" content="Looking for free WiFi? You just scanned a random QR code. Discover how to stay safe from malicious QR codes on campus.">
+
+  <title>Think Before You Scan | GMSA-KNUST Cybersecurity Month</title>
+
+  <!-- PASTE GOATCOUNTER SCRIPT HERE -->
+  <script data-goatcounter="https://gmsa-cyber.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    /* CSS Variables & Theme Tokens */
+    :root {
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      
+      --color-body-bg: #FAFAF7;
+      --color-surface: #FFFFFF;
+      --color-surface-subtle: #F3F3EE;
+      --color-border: #E5E5DF;
+      --color-border-subtle: #ECECE7;
+
+      --color-hero-bg: #0B3D2E;
+      --color-hero-text: #FFFFFF;
+      --color-hero-muted: #B7D1C7;
+      --color-hero-border: #165340;
+
+      --color-text-main: #18221D;
+      --color-text-muted: #56645D;
+      --color-accent-gold: #9C772F;
+      --color-accent-gold-soft: #FAF5EB;
+
+      --icon-tint-bg: #EEF4F1;
+      --icon-tint-border: #D8E5DF;
+      --icon-tint-color: #0B3D2E;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-body-bg: #0F1412;
+        --color-surface: #151C18;
+        --color-surface-subtle: #1B231F;
+        --color-border: #232D28;
+        --color-border-subtle: #1D2622;
+
+        --color-hero-bg: #0B2B21;
+        --color-hero-text: #F0F6F3;
+        --color-hero-muted: #8FAEA2;
+        --color-hero-border: #174233;
+
+        --color-text-main: #E5EDE8;
+        --color-text-muted: #8E9E96;
+        --color-accent-gold: #C9A458;
+        --color-accent-gold-soft: #231E14;
+
+        --icon-tint-bg: #1B2621;
+        --icon-tint-border: #283932;
+        --icon-tint-color: #9FC1B3;
+      }
+    }
+
+    /* Reset & Base Setup */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-stack);
+      background-color: var(--color-body-bg);
+      color: var(--color-text-main);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      animation: pageFadeIn 0.35s ease-out;
+    }
+
+    @keyframes pageFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body {
+        animation: none;
+      }
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    a {
+      color: var(--color-text-main);
+      text-decoration: underline;
+      text-decoration-color: var(--color-accent-gold);
+      text-underline-offset: 4px;
+      transition: color 0.15s ease;
+    }
+
+    a:hover, a:focus-visible {
+      color: var(--color-accent-gold);
+    }
+
+    button {
+      font: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-accent-gold);
+      outline-offset: 3px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background-color: var(--color-hero-bg);
+      color: var(--color-hero-text);
+      padding: 3.5rem 0 3.25rem;
+      border-bottom: 1px solid var(--color-hero-border);
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-meta-icon {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius-sm);
+      background-color: rgba(255, 255, 255, 0.08);
+      color: var(--color-hero-muted);
+      flex-shrink: 0;
+    }
+
+    .hero-label {
+      font-size: 0.8125rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--color-hero-muted);
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 5.5vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--color-hero-text);
+      margin-bottom: 1.35rem;
+      text-wrap: balance;
+    }
+
+    .hero-subline {
+      font-size: 1.1875rem;
+      line-height: 1.55;
+      color: var(--color-hero-muted);
+      margin-bottom: 1.5rem;
+      text-wrap: balance;
+    }
+
+    .hero-note {
+      font-size: 0.9375rem;
+      color: var(--color-hero-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .hero-note-icon {
+      flex-shrink: 0;
+      color: var(--color-hero-muted);
+    }
+
+    /* MAIN CONTENT */
+    main {
+      flex: 1;
+      padding-top: 3.5rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .section-block {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .section-tag {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent-gold);
+      margin-bottom: 0.35rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: var(--color-text-main);
+      text-wrap: balance;
+    }
+
+    .section-desc {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      margin-top: 0.35rem;
+      text-wrap: balance;
+    }
+
+    /* ICON CONTAINER HELPER */
+    .icon-box {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      border-radius: var(--radius-sm);
+      background-color: var(--icon-tint-bg);
+      border: 1px solid var(--icon-tint-border);
+      color: var(--icon-tint-color);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    /* SECTION: HOW THIS TRICK WORKS */
+    .trick-panel {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 1.65rem;
+    }
+
+    .trick-header {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .trick-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      letter-spacing: -0.015em;
+    }
+
+    .trick-panel p {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+
+    .trick-panel p strong {
+      color: var(--color-text-main);
+      font-weight: 600;
+    }
+
+    .trick-disclaimer {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      background-color: var(--color-surface-subtle);
+      border: 1px solid var(--color-border-subtle);
+      border-left: 3px solid var(--color-accent-gold);
+      border-radius: var(--radius-sm);
+      padding: 0.95rem 1.15rem;
+      margin-top: 1.25rem;
+      font-size: 0.9375rem;
+      line-height: 1.55;
+      color: var(--color-text-main);
+    }
+
+    .disclaimer-icon {
+      color: var(--color-accent-gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* SECTION: WHAT COULD HAVE HAPPENED */
+    .threat-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .threat-item {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.35rem;
+      display: flex;
+      gap: 1.15rem;
+      align-items: flex-start;
+    }
+
+    .threat-content h3 {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--color-text-main);
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.01em;
+    }
+
+    .threat-content p {
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+    }
+
+    /* SECTION: 5 SAFETY RULES (NUMBERED LIST) */
+    .rules-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .rule-row {
+      display: flex;
+      gap: 1.15rem;
+      align-items: flex-start;
+      padding: 1.35rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .rule-number {
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--color-accent-gold);
+      min-width: 24px;
+      padding-top: 8px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .rule-content {
+      flex: 1;
+    }
+
+    .rule-title {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--color-text-main);
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.01em;
+    }
+
+    .rule-text {
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+    }
+
+    .rule-text code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.875em;
+      background-color: var(--color-surface-subtle);
+      border: 1px solid var(--color-border);
+      padding: 0.1em 0.35em;
+      border-radius: 4px;
+      color: var(--color-text-main);
+    }
+
+    /* CALLOUT BANNER */
+    .callout-box {
+      background-color: var(--color-hero-bg);
+      color: var(--color-hero-text);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+      border: 1px solid var(--color-hero-border);
+    }
+
+    .callout-header {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .callout-heading {
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--color-hero-text);
+    }
+
+    .callout-tagline {
+      font-size: 1.0625rem;
+      font-weight: 500;
+      color: var(--color-hero-muted);
+      margin-bottom: 0.85rem;
+    }
+
+    .callout-text {
+      font-size: 0.9375rem;
+      color: var(--color-hero-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background-color: var(--color-accent-gold);
+      color: #FFFFFF;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 0.75rem 1.35rem;
+      border-radius: var(--radius-sm);
+      min-height: 44px;
+      transition: opacity 0.15s ease;
+    }
+
+    .share-btn:hover {
+      opacity: 0.9;
+    }
+
+    .share-btn:active {
+      transform: translateY(1px);
+    }
+
+    .share-feedback {
+      margin-top: 0.75rem;
+      font-size: 0.875rem;
+      color: var(--color-hero-muted);
+      min-height: 1.4em;
+    }
+
+    /* COLLAPSIBLE LEARN MORE */
+    .learn-details {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .learn-summary {
+      padding: 1.15rem 1.35rem;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--color-text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      min-height: 48px;
+    }
+
+    .learn-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .learn-summary .chevron {
+      color: var(--color-text-muted);
+      transition: transform 0.2s ease;
+    }
+
+    .learn-details[open] .learn-summary .chevron {
+      transform: rotate(180deg);
+      color: var(--color-accent-gold);
+    }
+
+    .learn-body {
+      padding: 0 1.35rem 1.35rem;
+      border-top: 1px solid var(--color-border-subtle);
+      padding-top: 1rem;
+    }
+
+    .learn-body p {
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0.85rem;
+    }
+
+    .resource-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .resource-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      font-size: 0.9375rem;
+    }
+
+    .resource-item a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-weight: 500;
+    }
+
+    .resource-pill {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      background-color: var(--color-surface-subtle);
+      border: 1px solid var(--color-border);
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-sm);
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      padding: 2.75rem 0 3.5rem;
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+    }
+
+    .footer-org {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-text-main);
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-sub {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-privacy {
+      max-width: 580px;
+      line-height: 1.55;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--color-border-subtle);
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-meta">
+        <div class="hero-meta-icon" aria-hidden="true">
+          <!-- Static QR-style Lucide icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="5" height="5" x="3" y="3" rx="1"/>
+            <rect width="5" height="5" x="16" y="3" rx="1"/>
+            <rect width="5" height="5" x="3" y="16" rx="1"/>
+            <path d="M21 16h-3a2 2 0 0 0-2 2v3"/>
+            <path d="M21 21v.01"/>
+            <path d="M12 7v3a2 2 0 0 1-2 2H7"/>
+            <path d="M3 12h.01"/>
+            <path d="M12 3h.01"/>
+            <path d="M12 16v.01"/>
+            <path d="M16 12h1"/>
+            <path d="M21 12v.01"/>
+            <path d="M12 21v-1"/>
+          </svg>
+        </div>
+        <span class="hero-label">GMSA-KNUST IT &amp; Media · Cybersecurity Month</span>
+      </div>
+
+      <h1 class="hero-title">
+        Looking for free WiFi? You just scanned a random QR code.
+      </h1>
+
+      <p class="hero-subline">
+        There is no free WiFi here, and this time nothing bad happened. A real attacker could have used this same trick to steal your passwords.
+      </p>
+
+      <div class="hero-note">
+        <div class="hero-note-icon" aria-hidden="true">
+          <!-- shield-alert Lucide icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+            <line x1="12" x2="12" y1="8" y2="12"/>
+            <line x1="12" x2="12.01" y1="16" y2="16"/>
+          </svg>
+        </div>
+        <span>This was an awareness demo. Nothing was collected from your phone.</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="container">
+
+      <!-- SECTION: HOW THIS TRICK WORKS -->
+      <section class="section-block" aria-labelledby="heading-trick">
+        <div class="trick-panel">
+          <div class="trick-header">
+            <div class="icon-box" aria-hidden="true">
+              <!-- wifi-off Lucide icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="2" x2="22" y1="2" y2="22"/>
+                <path d="M12 20h.01"/>
+                <path d="M8.5 16.429a5 5 0 0 1 7 0"/>
+                <path d="M5 12.859a10 10 0 0 1 5.17-2.69"/>
+                <path d="M19 12.859a10 10 0 0 0-2.007-1.523"/>
+                <path d="M2 8.82a15 15 0 0 1 4.177-2.643"/>
+                <path d="M22 8.82a15 15 0 0 0-11.288-3.764"/>
+              </svg>
+            </div>
+            <h2 id="heading-trick" class="trick-title">How this trick works</h2>
+          </div>
+
+          <p>
+            Attackers use tempting labels like <strong>"Free WiFi"</strong>, <strong>"Free Data"</strong>, or <strong>"Scan to win"</strong> to get people to scan without second thought.
+          </p>
+          <p>
+            Once scanned, you are redirected to a convincing replica of a login page (such as student portals, email providers, or social accounts) that silently logs your credentials the moment you submit them.
+          </p>
+
+          <div class="trick-disclaimer">
+            <div class="disclaimer-icon" aria-hidden="true">
+              <!-- info Lucide icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" x2="12" y1="16" y2="12"/>
+                <line x1="12" x2="12.01" y1="8" y2="8"/>
+              </svg>
+            </div>
+            <div>
+              This page does not provide WiFi and is not connected to any real network. It is a simulated teaching demo for campus awareness.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: WHAT COULD HAVE HAPPENED -->
+      <section class="section-block" aria-labelledby="heading-threats">
+        <div class="section-header">
+          <span class="section-tag">Risks</span>
+          <h2 id="heading-threats" class="section-title">What could have happened</h2>
+          <p class="section-desc">When a malicious QR code is scanned, an attacker can trigger several immediate threats:</p>
+        </div>
+
+        <div class="threat-list">
+          <!-- Point 1 -->
+          <article class="threat-item">
+            <div class="icon-box" aria-hidden="true">
+              <!-- key-round Lucide icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/>
+                <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="threat-content">
+              <h3>A fake login page stealing your passwords</h3>
+              <p>You land on a spoofed student portal or email login built to harvest your username, index number, and password.</p>
+            </div>
+          </article>
+
+          <!-- Point 2 -->
+          <article class="threat-item">
+            <div class="icon-box" aria-hidden="true">
+              <!-- download Lucide icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" x2="12" y1="15" y2="3"/>
+              </svg>
+            </div>
+            <div class="threat-content">
+              <h3>A malicious file download</h3>
+              <p>The link automatically initiates a download of a harmful file or APK that can spy on your device or access private data.</p>
+            </div>
+          </article>
+
+          <!-- Point 3 -->
+          <article class="threat-item">
+            <div class="icon-box" aria-hidden="true">
+              <!-- smartphone Lucide icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
+                <path d="M12 18h.01"/>
+              </svg>
+            </div>
+            <div class="threat-content">
+              <h3>A scam payment page</h3>
+              <p>You are directed to an illegitimate payment prompt requesting Mobile Money authorisations or debit card details under false pretences.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SECTION: HOW TO SCAN SAFELY (5 RULES) -->
+      <section class="section-block" aria-labelledby="heading-safety">
+        <div class="section-header">
+          <span class="section-tag">Prevention</span>
+          <h2 id="heading-safety" class="section-title">How to scan safely</h2>
+          <p class="section-desc">Five practical habits to protect your accounts and devices:</p>
+        </div>
+
+        <ol class="rules-list">
+          <!-- Rule 01 -->
+          <li class="rule-row">
+            <span class="rule-number">01</span>
+            <div class="icon-box" aria-hidden="true">
+              <!-- search Lucide icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <path d="m21 21-4.3-4.3"/>
+              </svg>
+            </div>
+            <div class="rule-content">
+              <h3 class="rule-title">Preview the link before opening it</h3>
+              <p class="rule-text">Modern camera apps display a preview of the destination URL. Verify the exact domain before tapping. Look out for altered spellings such as <code>knust-login.com</code> instead of <code>knust.edu.gh</code>.</p>
+            </div>
+          </li>
+
+          <!-- Rule 02 -->
+          <li class="rule-row">
+            <span class="rule-number">02</span>
+            <div class="icon-box" aria-hidden="true">
+              <!-- lock Lucide icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <div class="rule-content">
+              <h3 class="rule-title">Never enter passwords or payment details after a scan</h3>
+              <p class="rule-text">Legitimate public flyers rarely require entering passwords, MoMo PINs, or card numbers immediately after scanning. If an unexpected prompt appears, close it.</p>
+            </div>
+          </li>
+
+          <!-- Rule 03 -->
+          <li class="rule-row">
+            <span class="rule-number">03</span>
+            <div class="icon-box" aria-hidden="true">
+              <!-- layers Lucide icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/>
+                <path d="m22 12.5-8.58 3.91a2 2 0 0 1-1.66 0L2 12.5"/>
+                <path d="m22 17.5-8.58 3.91a2 2 0 0 1-1.66 0L2 17.5"/>
+              </svg>
+            </div>
+            <div class="rule-content">
+              <h3 class="rule-title">Check whether a sticker has been placed over another QR code</h3>
+              <p class="rule-text">Attackers frequently paste their own printed stickers directly on top of genuine notices, cafeteria tables, or posters. Inspect for peeling edges or raised tape before scanning.</p>
+            </div>
+          </li>
+
+          <!-- Rule 04 -->
+          <li class="rule-row">
+            <span class="rule-number">04</span>
+            <div class="icon-box" aria-hidden="true">
+              <!-- gift Lucide icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="8" width="18" height="4" rx="1"/>
+                <path d="M12 8v13"/>
+                <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/>
+                <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/>
+              </svg>
+            </div>
+            <div class="rule-content">
+              <h3 class="rule-title">Be suspicious of QR codes promising free data, prizes, or jobs</h3>
+              <p class="rule-text">Offers that seem too generous exist to bypass your caution. Unsolicited promises of cash stipends or free internet packages are common bait used in credential phishing.</p>
+            </div>
+          </li>
+
+          <!-- Rule 05 -->
+          <li class="rule-row">
+            <span class="rule-number">05</span>
+            <div class="icon-box" aria-hidden="true">
+              <!-- globe Lucide icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                <path d="M2 12h20"/>
+              </svg>
+            </div>
+            <div class="rule-content">
+              <h3 class="rule-title">When in doubt, type the official website yourself</h3>
+              <p class="rule-text">If a flyer references a university announcement, registration, or service, navigate to the verified portal manually in your browser rather than relying on a printed barcode.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- SECTION: CALLOUT BANNER -->
+      <section class="section-block" aria-label="Awareness Callout">
+        <div class="callout-box">
+          <div class="callout-header">
+            <div class="icon-box" style="background-color: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.15); color: var(--color-hero-text);" aria-hidden="true">
+              <!-- shield Lucide icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+              </svg>
+            </div>
+            <h2 class="callout-heading">Think Before You Click</h2>
+          </div>
+          <p class="callout-tagline">Stay Safe in the Digital World</p>
+          <p class="callout-text">
+            Cybersecurity starts with one conscious pause. Share these five habits with colleagues, roommates, and study groups to help keep our campus safe.
+          </p>
+          <button id="shareBtn" class="share-btn" type="button" aria-label="Share these safety tips">
+            <!-- share-2 Lucide icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="18" cy="5" r="3"/>
+              <circle cx="6" cy="12" r="3"/>
+              <circle cx="18" cy="19" r="3"/>
+              <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/>
+              <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
+            </svg>
+            <span>Share Safety Tips</span>
+          </button>
+          <div id="shareFeedback" class="share-feedback" role="status" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- SECTION: OPTIONAL COLLAPSIBLE LEARN MORE -->
+      <section class="section-block" aria-label="Further Resources">
+        <details class="learn-details">
+          <summary class="learn-summary">
+            <span>Want to learn more?</span>
+            <!-- chevron-down Lucide icon -->
+            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </summary>
+          <div class="learn-body">
+            <p>Recommended guides and campus security contacts:</p>
+            <ul class="resource-list">
+              <li class="resource-item">
+                <a href="#gmsa-it-media" target="_blank" rel="noopener noreferrer">
+                  <span>GMSA-KNUST IT &amp; Media Resource Desk</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 7h10v10"/>
+                    <path d="M7 17 17 7"/>
+                  </svg>
+                </a>
+                <span class="resource-pill">Student Wing</span>
+              </li>
+              <li class="resource-item">
+                <a href="https://www.csa.gov.gh" target="_blank" rel="noopener noreferrer">
+                  <span>Cyber Security Authority (CSA) Ghana</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 7h10v10"/>
+                    <path d="M7 17 17 7"/>
+                  </svg>
+                </a>
+                <span class="resource-pill">National Agency</span>
+              </li>
+              <li class="resource-item">
+                <a href="#campus-reporting" target="_blank" rel="noopener noreferrer">
+                  <span>Reporting Suspicious QR Codes on Campus</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 7h10v10"/>
+                    <path d="M7 17 17 7"/>
+                  </svg>
+                </a>
+                <span class="resource-pill">Support</span>
+              </li>
+              <li class="resource-item">
+                <a href="#quishing-guide" target="_blank" rel="noopener noreferrer">
+                  <span>Understanding Quishing (QR Phishing)</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 7h10v10"/>
+                    <path d="M7 17 17 7"/>
+                  </svg>
+                </a>
+                <span class="resource-pill">Documentation</span>
+              </li>
+            </ul>
+          </div>
+        </details>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p class="footer-org">An initiative of GMSA-KNUST IT &amp; Media</p>
+      <p class="footer-sub">Cybersecurity Awareness Month · October 2026</p>
+      <p class="footer-privacy">
+        We only count total visits to this page. No names, accounts, or personal details are collected, and no cookies are used.
+      </p>
+    </div>
+  </footer>
+
+  <!-- VANILLA JS: SHARE & CLIPBOARD INTERACTION -->
+  <script>
+    (function () {
+      const shareBtn = document.getElementById('shareBtn');
+      const shareFeedback = document.getElementById('shareFeedback');
+
+      if (!shareBtn) return;
+
+      const shareData = {
+        title: 'Think Before You Scan | GMSA-KNUST Cybersecurity Month',
+        text: 'Looking for free WiFi? Be careful when scanning random QR codes on campus. Here are 5 habits to protect your accounts:',
+        url: window.location.href
+      };
+
+      shareBtn.addEventListener('click', async function () {
+        if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+          try {
+            await navigator.share(shareData);
+            setFeedback('Link shared successfully.');
+          } catch (err) {
+            if (err.name !== 'AbortError') {
+              fallbackCopy();
+            }
+          }
+        } else {
+          fallbackCopy();
+        }
+      });
+
+      function fallbackCopy() {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(window.location.href)
+            .then(function () {
+              setFeedback('Link copied to clipboard.');
+            })
+            .catch(function () {
+              setFeedback('Link: ' + window.location.href);
+            });
+        } else {
+          setFeedback('Link: ' + window.location.href);
+        }
+      }
+
+      function setFeedback(msg) {
+        if (shareFeedback) {
+          shareFeedback.textContent = msg;
+          setTimeout(function () {
+            shareFeedback.textContent = '';
+          }, 4000);
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
