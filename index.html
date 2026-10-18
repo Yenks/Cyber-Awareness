@@ -3,79 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Looking for free WiFi? You just scanned a random QR code. Learn how attackers use tempting QR codes to steal passwords, and 5 rules to stay safe on campus.">
-  <meta name="theme-color" content="#0B3D2E">
+  <meta name="description" content="GMSA-KNUST Cybersecurity Awareness: Looking for free WiFi? Discover how quishing attacks exploit physical QR codes and learn 5 standard operating rules to protect your accounts.">
+  <meta name="theme-color" content="#0B382B">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/gmsa-logo.png">
   
   <!-- Open Graph / Social Meta Tags -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Think Before You Scan | GMSA-KNUST Cybersecurity Month">
-  <meta property="og:description" content="Looking for free WiFi? You just scanned a random QR code. Discover how to stay safe from malicious QR codes on campus.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:description" content="Looking for free WiFi? Discover how physical QR codes can compromise devices and learn how to scan safely.">
+  <meta property="og:image" content="assets/gmsa-logo.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Think Before You Scan | GMSA-KNUST Cybersecurity Month">
-  <meta name="twitter:description" content="Looking for free WiFi? You just scanned a random QR code. Discover how to stay safe from malicious QR codes on campus.">
+  <meta name="twitter:description" content="Looking for free WiFi? Learn 5 rules to stay safe from quishing and rogue QR codes on campus.">
+  <meta name="twitter:image" content="assets/gmsa-logo.png">
 
   <title>Think Before You Scan | GMSA-KNUST Cybersecurity Month</title>
+
+  <!-- Google Font: Plus Jakarta Sans for crisp editorial typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- PASTE GOATCOUNTER SCRIPT HERE -->
   <script data-goatcounter="https://gmsa-cyber.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
 
   <style>
-    /* CSS Variables & Theme Tokens */
+    /* DESIGN TOKENS */
     :root {
-      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       
-      --color-body-bg: #FAFAF7;
-      --color-surface: #FFFFFF;
-      --color-surface-subtle: #F3F3EE;
-      --color-border: #E5E5DF;
-      --color-border-subtle: #ECECE7;
+      --bg-page: #F4F6F8;
+      --bg-card: #FFFFFF;
+      --bg-card-subtle: #F8FAFB;
+      --bg-hero: #0B382B;
+      --bg-hero-status: rgba(0, 0, 0, 0.28);
 
-      --color-hero-bg: #0B3D2E;
-      --color-hero-text: #FFFFFF;
-      --color-hero-muted: #B7D1C7;
-      --color-hero-border: #165340;
+      --border-light: #E5E9EB;
+      --border-subtle: #EEF2F4;
+      --border-hero: rgba(255, 255, 255, 0.12);
 
-      --color-text-main: #18221D;
-      --color-text-muted: #56645D;
-      --color-accent-gold: #9C772F;
-      --color-accent-gold-soft: #FAF5EB;
+      --text-main: #111827;
+      --text-muted: #64748B;
+      --text-hero: #FFFFFF;
+      --text-hero-sub: #A3C2B6;
 
-      --icon-tint-bg: #EEF4F1;
-      --icon-tint-border: #D8E5DF;
-      --icon-tint-color: #0B3D2E;
+      --accent-gold: #9B722B;
+      --accent-gold-light: #FEF3C7;
+      --accent-gold-text: #B45309;
+
+      --tag-neutral-bg: #EEF2F6;
+      --tag-neutral-text: #475569;
+      --tag-critical-bg: #FEE2E2;
+      --tag-critical-text: #DC2626;
+      --tag-high-bg: #FEF3C7;
+      --tag-high-text: #D97706;
+      --tag-rules-bg: #DCFCE7;
+      --tag-rules-text: #166534;
 
       --radius-sm: 6px;
       --radius-md: 10px;
       --radius-lg: 14px;
+      --radius-hero: 18px;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.04);
+      --shadow-nav: 0 -4px 16px rgba(15, 23, 42, 0.05);
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --color-body-bg: #0F1412;
-        --color-surface: #151C18;
-        --color-surface-subtle: #1B231F;
-        --color-border: #232D28;
-        --color-border-subtle: #1D2622;
+        --bg-page: #0C1210;
+        --bg-card: #141C19;
+        --bg-card-subtle: #192320;
+        --bg-hero: #09261E;
+        --bg-hero-status: rgba(0, 0, 0, 0.45);
 
-        --color-hero-bg: #0B2B21;
-        --color-hero-text: #F0F6F3;
-        --color-hero-muted: #8FAEA2;
-        --color-hero-border: #174233;
+        --border-light: #22302A;
+        --border-subtle: #1C2722;
+        --border-hero: rgba(255, 255, 255, 0.15);
 
-        --color-text-main: #E5EDE8;
-        --color-text-muted: #8E9E96;
-        --color-accent-gold: #C9A458;
-        --color-accent-gold-soft: #231E14;
+        --text-main: #F1F5F9;
+        --text-muted: #94A3B8;
+        --text-hero: #FFFFFF;
+        --text-hero-sub: #A2C4B7;
 
-        --icon-tint-bg: #1B2621;
-        --icon-tint-border: #283932;
-        --icon-tint-color: #9FC1B3;
+        --accent-gold: #CBA55B;
+        --accent-gold-light: #2A2111;
+        --accent-gold-text: #E6B860;
+
+        --tag-neutral-bg: #1E293B;
+        --tag-neutral-text: #CBD5E1;
+        --tag-critical-bg: #381A1A;
+        --tag-critical-text: #FCA5A5;
+        --tag-high-bg: #352613;
+        --tag-high-text: #FDE68A;
+        --tag-rules-bg: #143522;
+        --tag-rules-text: #86EFAC;
+
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+        --shadow-nav: 0 -4px 16px rgba(0, 0, 0, 0.4);
       }
     }
 
-    /* Reset & Base Setup */
+    /* BASE SETUP */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -89,47 +122,32 @@
     }
 
     body {
-      font-family: var(--font-stack);
-      background-color: var(--color-body-bg);
-      color: var(--color-text-main);
-      font-size: 1.0625rem;
-      line-height: 1.65;
+      font-family: var(--font-sans);
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-size: 0.9375rem;
+      line-height: 1.55;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      animation: pageFadeIn 0.35s ease-out;
+      padding-bottom: 76px; /* Spacing so mobile bottom nav never covers content */
     }
 
-    @keyframes pageFadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(4px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+    @media (min-width: 768px) {
+      body {
+        padding-bottom: 0;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      body {
-        animation: none;
-      }
       html {
         scroll-behavior: auto;
       }
     }
 
     a {
-      color: var(--color-text-main);
-      text-decoration: underline;
-      text-decoration-color: var(--color-accent-gold);
-      text-underline-offset: 4px;
-      transition: color 0.15s ease;
-    }
-
-    a:hover, a:focus-visible {
-      color: var(--color-accent-gold);
+      color: inherit;
+      text-decoration: none;
     }
 
     button {
@@ -140,7 +158,7 @@
     }
 
     :focus-visible {
-      outline: 2px solid var(--color-accent-gold);
+      outline: 2px solid var(--accent-gold);
       outline-offset: 3px;
     }
 
@@ -149,358 +167,540 @@
       max-width: 680px;
       margin-left: auto;
       margin-right: auto;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
+      padding-left: 1.15rem;
+      padding-right: 1.15rem;
     }
 
-    /* HERO SECTION */
-    .hero {
-      background-color: var(--color-hero-bg);
-      color: var(--color-hero-text);
-      padding: 3.5rem 0 3.25rem;
-      border-bottom: 1px solid var(--color-hero-border);
+    @media (min-width: 768px) {
+      .container {
+        max-width: 720px;
+      }
     }
 
-    .hero-meta {
+    /* TOP HEADER BAR */
+    .top-header {
+      background-color: var(--bg-card);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .top-header-inner {
       display: flex;
       align-items: center;
-      gap: 0.65rem;
-      margin-bottom: 2rem;
+      justify-content: space-between;
+      height: 60px;
     }
 
-    .hero-meta-icon {
-      width: 28px;
-      height: 28px;
-      display: grid;
-      place-items: center;
-      border-radius: var(--radius-sm);
-      background-color: rgba(255, 255, 255, 0.08);
-      color: var(--color-hero-muted);
-      flex-shrink: 0;
-    }
-
-    .hero-label {
-      font-size: 0.8125rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--color-hero-muted);
-    }
-
-    .hero-title {
-      font-size: clamp(2rem, 5.5vw, 2.75rem);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.025em;
-      color: var(--color-hero-text);
-      margin-bottom: 1.35rem;
-      text-wrap: balance;
-    }
-
-    .hero-subline {
-      font-size: 1.1875rem;
-      line-height: 1.55;
-      color: var(--color-hero-muted);
-      margin-bottom: 1.5rem;
-      text-wrap: balance;
-    }
-
-    .hero-note {
-      font-size: 0.9375rem;
-      color: var(--color-hero-muted);
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-      padding-top: 1.25rem;
+    .header-branding {
       display: flex;
       align-items: center;
-      gap: 0.65rem;
+      gap: 0.75rem;
     }
 
-    .hero-note-icon {
-      flex-shrink: 0;
-      color: var(--color-hero-muted);
+    .header-logos {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    /* MAIN CONTENT */
-    main {
-      flex: 1;
-      padding-top: 3.5rem;
-      padding-bottom: 4.5rem;
-    }
-
-    .section-block {
-      margin-bottom: 3.5rem;
-    }
-
-    .section-header {
-      margin-bottom: 1.5rem;
-    }
-
-    .section-tag {
+    .logo-img {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
       display: block;
-      font-size: 0.75rem;
+    }
+
+    .header-titles {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .header-eyebrow {
+      font-size: 0.6875rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--color-accent-gold);
-      margin-bottom: 0.35rem;
+      color: var(--accent-gold);
     }
 
-    .section-title {
-      font-size: 1.5rem;
+    .header-main {
+      font-size: 0.9375rem;
       font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+    }
+
+    /* Desktop Navigation in Header */
+    .desktop-nav {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .desktop-nav {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+      }
+
+      .desktop-nav a {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        transition: color 0.15s ease;
+      }
+
+      .desktop-nav a:hover,
+      .desktop-nav a.active {
+        color: var(--accent-gold);
+      }
+
+      .desktop-nav .share-nav-btn {
+        background-color: var(--bg-hero);
+        color: #FFFFFF;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        padding: 0.45rem 0.85rem;
+        border-radius: var(--radius-sm);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: opacity 0.15s ease;
+      }
+
+      .desktop-nav .share-nav-btn:hover {
+        opacity: 0.9;
+        color: #FFFFFF;
+      }
+    }
+
+    /* MAIN WRAPPER */
+    main {
+      flex: 1;
+      padding-top: 1.15rem;
+      padding-bottom: 2.5rem;
+    }
+
+    /* HERO CARD */
+    .hero-card {
+      background-color: var(--bg-hero);
+      color: var(--text-hero);
+      border-radius: var(--radius-hero);
+      padding: 1.5rem 1.35rem 1.35rem;
+      position: relative;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(11, 56, 43, 0.15);
+    }
+
+    .hero-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-tag {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #FBBF24;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .hero-campus {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #93C5FD;
+    }
+
+    .hero-headline {
+      font-size: clamp(1.65rem, 5vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+      color: #FFFFFF;
+      margin-bottom: 1rem;
+      text-wrap: balance;
+    }
+
+    .hero-subtext {
+      font-size: 0.9375rem;
+      line-height: 1.55;
+      color: var(--text-hero-sub);
+      margin-bottom: 1.35rem;
+    }
+
+    .hero-subtext strong {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .hero-status-pill {
+      background-color: var(--bg-hero-status);
+      border: 1px solid var(--border-hero);
+      border-radius: var(--radius-md);
+      padding: 0.65rem 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    .hero-status-icon {
+      color: #34D399;
+      display: flex;
+      align-items: center;
+    }
+
+    /* SECTION CONTAINERS */
+    .content-section {
+      margin-bottom: 2rem;
+      scroll-margin-top: 75px;
+    }
+
+    .section-eyebrow-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.6875rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+    }
+
+    .section-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .section-heading {
+      font-size: 1.35rem;
+      font-weight: 800;
       letter-spacing: -0.02em;
-      line-height: 1.25;
-      color: var(--color-text-main);
+      color: var(--text-main);
       text-wrap: balance;
     }
 
-    .section-desc {
+    .section-icon-badge {
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+
+    .rules-pill {
+      font-size: 0.725rem;
+      font-weight: 700;
+      padding: 0.2rem 0.65rem;
+      border-radius: var(--radius-full);
+      background-color: var(--tag-rules-bg);
+      color: var(--tag-rules-text);
+    }
+
+    /* SECTION 1: ANATOMY OF A QUISHING VECTOR (3 STEP CARDS) */
+    .step-cards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .step-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.15rem 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-title-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .step-num-circle {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background-color: var(--accent-gold-light);
+      color: var(--accent-gold-text);
+      font-size: 0.75rem;
+      font-weight: 800;
+      display: grid;
+      place-items: center;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .step-title {
       font-size: 1rem;
-      color: var(--color-text-muted);
-      margin-top: 0.35rem;
-      text-wrap: balance;
+      font-weight: 700;
+      color: var(--text-main);
     }
 
-    /* ICON CONTAINER HELPER */
-    .icon-box {
+    .meta-tag {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .tag-contextual, .tag-obfuscation {
+      background-color: var(--tag-neutral-bg);
+      color: var(--tag-neutral-text);
+    }
+
+    .tag-execution {
+      background-color: var(--tag-critical-bg);
+      color: var(--tag-critical-text);
+    }
+
+    .step-card p {
+      font-size: 0.8875rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* SECTION 2: WHAT COULD HAVE HAPPENED (THREAT CARDS) */
+    .threat-cards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .threat-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.15rem 1.25rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .threat-icon-box {
       width: 40px;
       height: 40px;
       min-width: 40px;
       border-radius: var(--radius-sm);
-      background-color: var(--icon-tint-bg);
-      border: 1px solid var(--icon-tint-border);
-      color: var(--icon-tint-color);
+      background-color: var(--tag-neutral-bg);
+      color: #3B82F6;
       display: grid;
       place-items: center;
-      flex-shrink: 0;
     }
 
-    /* SECTION: HOW THIS TRICK WORKS */
-    .trick-panel {
-      background-color: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      padding: 1.75rem 1.65rem;
-    }
-
-    .trick-header {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      margin-bottom: 1rem;
-    }
-
-    .trick-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--color-text-main);
-      letter-spacing: -0.015em;
-    }
-
-    .trick-panel p {
-      font-size: 1rem;
-      color: var(--color-text-muted);
-      line-height: 1.65;
-      margin-bottom: 1rem;
-    }
-
-    .trick-panel p strong {
-      color: var(--color-text-main);
-      font-weight: 600;
-    }
-
-    .trick-disclaimer {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      background-color: var(--color-surface-subtle);
-      border: 1px solid var(--color-border-subtle);
-      border-left: 3px solid var(--color-accent-gold);
-      border-radius: var(--radius-sm);
-      padding: 0.95rem 1.15rem;
-      margin-top: 1.25rem;
-      font-size: 0.9375rem;
-      line-height: 1.55;
-      color: var(--color-text-main);
-    }
-
-    .disclaimer-icon {
-      color: var(--color-accent-gold);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    /* SECTION: WHAT COULD HAVE HAPPENED */
-    .threat-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-
-    .threat-item {
-      background-color: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      padding: 1.25rem 1.35rem;
-      display: flex;
-      gap: 1.15rem;
-      align-items: flex-start;
-    }
-
-    .threat-content h3 {
-      font-size: 1.0625rem;
-      font-weight: 600;
-      color: var(--color-text-main);
-      margin-bottom: 0.3rem;
-      letter-spacing: -0.01em;
-    }
-
-    .threat-content p {
-      font-size: 0.9375rem;
-      color: var(--color-text-muted);
-      line-height: 1.55;
-    }
-
-    /* SECTION: 5 SAFETY RULES (NUMBERED LIST) */
-    .rules-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      border-top: 1px solid var(--color-border);
-    }
-
-    .rule-row {
-      display: flex;
-      gap: 1.15rem;
-      align-items: flex-start;
-      padding: 1.35rem 0;
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .rule-number {
-      font-size: 0.875rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      color: var(--color-accent-gold);
-      min-width: 24px;
-      padding-top: 8px;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .rule-content {
+    .threat-body {
       flex: 1;
     }
 
-    .rule-title {
-      font-size: 1.0625rem;
-      font-weight: 600;
-      color: var(--color-text-main);
+    .threat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       margin-bottom: 0.35rem;
-      letter-spacing: -0.01em;
     }
 
-    .rule-text {
-      font-size: 0.9375rem;
-      color: var(--color-text-muted);
+    .threat-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .severity-tag {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .severity-critical, .severity-severe {
+      background-color: var(--tag-critical-bg);
+      color: var(--tag-critical-text);
+    }
+
+    .severity-high {
+      background-color: var(--tag-high-bg);
+      color: var(--tag-high-text);
+    }
+
+    .threat-body p {
+      font-size: 0.8875rem;
+      color: var(--text-muted);
       line-height: 1.55;
     }
 
-    .rule-text code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.875em;
-      background-color: var(--color-surface-subtle);
-      border: 1px solid var(--color-border);
-      padding: 0.1em 0.35em;
-      border-radius: 4px;
-      color: var(--color-text-main);
-    }
-
-    /* CALLOUT BANNER */
-    .callout-box {
-      background-color: var(--color-hero-bg);
-      color: var(--color-hero-text);
-      border-radius: var(--radius-lg);
-      padding: 2.25rem 2rem;
-      border: 1px solid var(--color-hero-border);
-    }
-
-    .callout-header {
+    /* SECTION 3: HOW TO SCAN SAFELY (NUMBERED RULES) */
+    .sop-rules-list {
       display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      margin-bottom: 0.75rem;
+      flex-direction: column;
+      gap: 0.75rem;
     }
 
-    .callout-heading {
-      font-size: 1.45rem;
+    .sop-rule-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.15rem 1.25rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .rule-tag-badge {
+      min-width: 58px;
+      padding: 0.35rem 0.5rem;
+      background-color: var(--tag-neutral-bg);
+      border-radius: var(--radius-sm);
+      color: var(--tag-neutral-text);
+      font-size: 0.6875rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-align: center;
+      line-height: 1.2;
+      text-transform: uppercase;
+      font-variant-numeric: tabular-nums;
+      flex-shrink: 0;
+    }
+
+    .sop-rule-body {
+      flex: 1;
+    }
+
+    .sop-rule-title {
+      font-size: 0.9875rem;
       font-weight: 700;
-      letter-spacing: -0.015em;
-      color: var(--color-hero-text);
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
     }
 
-    .callout-tagline {
-      font-size: 1.0625rem;
-      font-weight: 500;
-      color: var(--color-hero-muted);
-      margin-bottom: 0.85rem;
+    .sop-rule-body p {
+      font-size: 0.8875rem;
+      color: var(--text-muted);
+      line-height: 1.55;
     }
 
-    .callout-text {
-      font-size: 0.9375rem;
-      color: var(--color-hero-muted);
+    .sop-rule-body code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85em;
+      background-color: var(--bg-card-subtle);
+      border: 1px solid var(--border-light);
+      padding: 0.1em 0.3em;
+      border-radius: 4px;
+      color: var(--text-main);
+    }
+
+    /* CLOSING THINK BEFORE YOU CLICK BLOCK */
+    .axiom-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 1.45rem;
+      margin-top: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .axiom-eyebrow {
+      font-size: 0.6875rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 0.35rem;
+    }
+
+    .axiom-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      margin-bottom: 0.65rem;
+    }
+
+    .axiom-desc {
+      font-size: 0.9125rem;
+      color: var(--text-muted);
       line-height: 1.6;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.35rem;
     }
 
-    .share-btn {
+    .share-action-btn {
+      width: 100%;
+      background-color: var(--bg-hero);
+      color: #FFFFFF;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      padding: 0.85rem 1.25rem;
+      border-radius: var(--radius-md);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.6rem;
-      background-color: var(--color-accent-gold);
-      color: #FFFFFF;
-      font-size: 0.9375rem;
+      gap: 0.55rem;
+      transition: opacity 0.15s ease, transform 0.1s ease;
+      min-height: 48px;
+    }
+
+    .share-action-btn:hover {
+      opacity: 0.92;
+    }
+
+    .share-action-btn:active {
+      transform: scale(0.99);
+    }
+
+    .share-msg-toast {
+      margin-top: 0.65rem;
+      font-size: 0.825rem;
       font-weight: 600;
-      padding: 0.75rem 1.35rem;
-      border-radius: var(--radius-sm);
-      min-height: 44px;
-      transition: opacity 0.15s ease;
+      color: #059669;
+      text-align: center;
+      min-height: 1.3em;
     }
 
-    .share-btn:hover {
-      opacity: 0.9;
-    }
-
-    .share-btn:active {
-      transform: translateY(1px);
-    }
-
-    .share-feedback {
-      margin-top: 0.75rem;
-      font-size: 0.875rem;
-      color: var(--color-hero-muted);
-      min-height: 1.4em;
-    }
-
-    /* COLLAPSIBLE LEARN MORE */
-    .learn-details {
-      background-color: var(--color-surface);
-      border: 1px solid var(--color-border);
+    /* OPTIONAL COLLAPSIBLE LEARN MORE */
+    .learn-accordion {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
       border-radius: var(--radius-md);
+      margin-top: 1rem;
       overflow: hidden;
     }
 
     .learn-summary {
-      padding: 1.15rem 1.35rem;
-      font-size: 1.0625rem;
-      font-weight: 600;
-      color: var(--color-text-main);
+      padding: 1.1rem 1.25rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: space-between;
       user-select: none;
-      min-height: 48px;
     }
 
     .learn-summary::-webkit-details-marker {
@@ -508,134 +708,212 @@
     }
 
     .learn-summary .chevron {
-      color: var(--color-text-muted);
+      color: var(--text-muted);
       transition: transform 0.2s ease;
     }
 
-    .learn-details[open] .learn-summary .chevron {
+    .learn-accordion[open] .learn-summary .chevron {
       transform: rotate(180deg);
-      color: var(--color-accent-gold);
+      color: var(--accent-gold);
     }
 
-    .learn-body {
-      padding: 0 1.35rem 1.35rem;
-      border-top: 1px solid var(--color-border-subtle);
-      padding-top: 1rem;
+    .learn-content {
+      padding: 0 1.25rem 1.25rem;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 0.85rem;
     }
 
-    .learn-body p {
-      font-size: 0.9375rem;
-      color: var(--color-text-muted);
-      margin-bottom: 0.85rem;
+    .learn-content p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
     }
 
-    .resource-list {
+    .resources-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.65rem;
     }
 
-    .resource-item {
+    .resource-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.5rem;
-      font-size: 0.9375rem;
+      font-size: 0.875rem;
     }
 
-    .resource-item a {
+    .resource-row a {
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      font-weight: 500;
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: underline;
+      text-decoration-color: var(--accent-gold);
+      text-underline-offset: 3px;
     }
 
-    .resource-pill {
-      font-size: 0.75rem;
-      color: var(--color-text-muted);
-      background-color: var(--color-surface-subtle);
-      border: 1px solid var(--color-border);
+    .resource-row a:hover {
+      color: var(--accent-gold);
+    }
+
+    .resource-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      background-color: var(--tag-neutral-bg);
+      color: var(--tag-neutral-text);
       padding: 0.15rem 0.5rem;
       border-radius: var(--radius-sm);
     }
 
     /* FOOTER */
     footer {
-      background-color: var(--color-surface);
-      border-top: 1px solid var(--color-border);
-      padding: 2.75rem 0 3.5rem;
-      color: var(--color-text-muted);
-      font-size: 0.875rem;
+      background-color: var(--bg-card);
+      border-top: 1px solid var(--border-light);
+      padding: 2.5rem 0 2rem;
+      text-align: center;
     }
 
-    .footer-org {
-      font-size: 0.9375rem;
-      font-weight: 600;
-      color: var(--color-text-main);
+    .footer-logos-container {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      background-color: #FFFFFF;
+      padding: 0.65rem 1.25rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      margin-bottom: 1.15rem;
+    }
+
+    .footer-logo-img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .footer-published {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text-main);
       margin-bottom: 0.25rem;
     }
 
-    .footer-sub {
-      font-size: 0.875rem;
-      color: var(--color-text-muted);
+    .footer-event {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
       margin-bottom: 1.25rem;
     }
 
-    .footer-privacy {
+    .footer-privacy-box {
+      background-color: var(--bg-card-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.15rem;
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      color: var(--text-muted);
       max-width: 580px;
-      line-height: 1.55;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--color-border-subtle);
-      color: var(--color-text-muted);
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    /* BOTTOM MOBILE NAVIGATION */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background-color: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-top: 1px solid var(--border-light);
+      box-shadow: var(--shadow-nav);
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 0.5rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .bottom-nav {
+        background-color: rgba(20, 28, 25, 0.94);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .bottom-nav {
+        display: none;
+      }
+    }
+
+    .nav-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+      color: var(--text-muted);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-sm);
+      transition: color 0.15s ease;
+      touch-action: manipulation;
+    }
+
+    .nav-tab svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .nav-tab.active {
+      color: #0B382B;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .nav-tab.active {
+        color: #6EE7B7;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO SECTION -->
-  <header class="hero">
-    <div class="container">
-      <div class="hero-meta">
-        <div class="hero-meta-icon" aria-hidden="true">
-          <!-- Static QR-style Lucide icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-            <rect width="5" height="5" x="3" y="3" rx="1"/>
-            <rect width="5" height="5" x="16" y="3" rx="1"/>
-            <rect width="5" height="5" x="3" y="16" rx="1"/>
-            <path d="M21 16h-3a2 2 0 0 0-2 2v3"/>
-            <path d="M21 21v.01"/>
-            <path d="M12 7v3a2 2 0 0 1-2 2H7"/>
-            <path d="M3 12h.01"/>
-            <path d="M12 3h.01"/>
-            <path d="M12 16v.01"/>
-            <path d="M16 12h1"/>
-            <path d="M21 12v.01"/>
-            <path d="M12 21v-1"/>
-          </svg>
+  <!-- TOP HEADER -->
+  <header class="top-header">
+    <div class="container top-header-inner">
+      <div class="header-branding">
+        <div class="header-logos">
+          <img src="assets/gmsa-logo.png" alt="GMSA-KNUST Logo" class="logo-img" width="32" height="32">
+          <img src="assets/it-media-logo.png" alt="GMSA IT &amp; Media Committee Logo" class="logo-img" width="32" height="32">
         </div>
-        <span class="hero-label">GMSA-KNUST IT &amp; Media · Cybersecurity Month</span>
+        <div class="header-titles">
+          <span class="header-eyebrow">Advisory Campaign</span>
+          <span class="header-main">Campaign Brief</span>
+        </div>
       </div>
 
-      <h1 class="hero-title">
-        Looking for free WiFi? You just scanned a random QR code.
-      </h1>
-
-      <p class="hero-subline">
-        There is no free WiFi here, and this time nothing bad happened. A real attacker could have used this same trick to steal your passwords.
-      </p>
-
-      <div class="hero-note">
-        <div class="hero-note-icon" aria-hidden="true">
-          <!-- shield-alert Lucide icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
-            <line x1="12" x2="12" y1="8" y2="12"/>
-            <line x1="12" x2="12.01" y1="16" y2="16"/>
+      <!-- Desktop Header Navigation -->
+      <nav class="desktop-nav" aria-label="Desktop Navigation">
+        <a href="#advisory" class="desktop-nav-link active">Advisory</a>
+        <a href="#threats" class="desktop-nav-link">Threats</a>
+        <a href="#action" class="desktop-nav-link">Action</a>
+        <button id="desktopShareBtn" class="share-nav-btn" type="button" aria-label="Share this notice">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="18" cy="5" r="3"/>
+            <circle cx="6" cy="12" r="3"/>
+            <circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/>
+            <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
           </svg>
-        </div>
-        <span>This was an awareness demo. Nothing was collected from your phone.</span>
-      </div>
+          <span>Share</span>
+        </button>
+      </nav>
     </div>
   </header>
 
@@ -643,255 +921,269 @@
   <main>
     <div class="container">
 
-      <!-- SECTION: HOW THIS TRICK WORKS -->
-      <section class="section-block" aria-labelledby="heading-trick">
-        <div class="trick-panel">
-          <div class="trick-header">
-            <div class="icon-box" aria-hidden="true">
-              <!-- wifi-off Lucide icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="2" x2="22" y1="2" y2="22"/>
-                <path d="M12 20h.01"/>
-                <path d="M8.5 16.429a5 5 0 0 1 7 0"/>
-                <path d="M5 12.859a10 10 0 0 1 5.17-2.69"/>
-                <path d="M19 12.859a10 10 0 0 0-2.007-1.523"/>
-                <path d="M2 8.82a15 15 0 0 1 4.177-2.643"/>
-                <path d="M22 8.82a15 15 0 0 0-11.288-3.764"/>
-              </svg>
-            </div>
-            <h2 id="heading-trick" class="trick-title">How this trick works</h2>
-          </div>
+      <!-- HERO SECTION / ADVISORY -->
+      <section id="advisory" class="hero-card" aria-label="Campus Advisory">
+        <div class="hero-meta-row">
+          <span class="hero-tag">
+            <span aria-hidden="true">+</span> Awareness Notice
+          </span>
+          <span class="hero-campus">KNUST Campus</span>
+        </div>
 
-          <p>
-            Attackers use tempting labels like <strong>"Free WiFi"</strong>, <strong>"Free Data"</strong>, or <strong>"Scan to win"</strong> to get people to scan without second thought.
-          </p>
-          <p>
-            Once scanned, you are redirected to a convincing replica of a login page (such as student portals, email providers, or social accounts) that silently logs your credentials the moment you submit them.
-          </p>
+        <h1 class="hero-headline">
+          Looking for free WiFi?<br>You just scanned a random QR code.
+        </h1>
 
-          <div class="trick-disclaimer">
-            <div class="disclaimer-icon" aria-hidden="true">
-              <!-- info Lucide icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="12" x2="12" y1="16" y2="12"/>
-                <line x1="12" x2="12.01" y1="8" y2="8"/>
-              </svg>
-            </div>
-            <div>
-              This page does not provide WiFi and is not connected to any real network. It is a simulated teaching demo for campus awareness.
-            </div>
-          </div>
+        <p class="hero-subtext">
+          Rest assured: your device has not been compromised. This is an educational demonstration organized by <strong>GMSA-KNUST IT &amp; Media</strong> to build awareness around physical QR code vulnerabilities.
+        </p>
+
+        <div class="hero-status-pill">
+          <span class="hero-status-icon" aria-hidden="true">
+            <!-- shield-check SVG icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </span>
+          <span>No personal data collected</span>
         </div>
       </section>
 
-      <!-- SECTION: WHAT COULD HAVE HAPPENED -->
-      <section class="section-block" aria-labelledby="heading-threats">
-        <div class="section-header">
-          <span class="section-tag">Risks</span>
-          <h2 id="heading-threats" class="section-title">What could have happened</h2>
-          <p class="section-desc">When a malicious QR code is scanned, an attacker can trigger several immediate threats:</p>
+      <!-- SECTION 1: THREAT MECHANISM / ANATOMY OF A QUISHING VECTOR -->
+      <section class="content-section" aria-labelledby="heading-mechanism">
+        <div class="section-eyebrow-row">
+          <span class="section-eyebrow">Threat Mechanism</span>
+        </div>
+        <div class="section-header-row">
+          <h2 id="heading-mechanism" class="section-heading">Anatomy of a Quishing Vector</h2>
+          <div class="section-icon-badge" aria-hidden="true">
+            <!-- network / layers Lucide SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="16" y="16" width="6" height="6" rx="1"/>
+              <rect x="2" y="16" width="6" height="6" rx="1"/>
+              <rect x="9" y="2" width="6" height="6" rx="1"/>
+              <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/>
+              <path d="M12 12V8"/>
+            </svg>
+          </div>
         </div>
 
-        <div class="threat-list">
-          <!-- Point 1 -->
-          <article class="threat-item">
-            <div class="icon-box" aria-hidden="true">
-              <!-- key-round Lucide icon -->
+        <div class="step-cards-list">
+          <!-- Step 01 -->
+          <article class="step-card">
+            <div class="step-header">
+              <div class="step-title-group">
+                <span class="step-num-circle">01</span>
+                <h3 class="step-title">The Physical Lure</h3>
+              </div>
+              <span class="meta-tag tag-contextual">Contextual</span>
+            </div>
+            <p>Attacker places an enticing "KNUST Free WiFi" sticker or decal in high-traffic campus zones like lecture halls, bus stops, and cafeteria tables.</p>
+          </article>
+
+          <!-- Step 02 -->
+          <article class="step-card">
+            <div class="step-header">
+              <div class="step-title-group">
+                <span class="step-num-circle">02</span>
+                <h3 class="step-title">The Blind Scan</h3>
+              </div>
+              <span class="meta-tag tag-obfuscation">Obfuscation</span>
+            </div>
+            <p>Unlike visible text links, physical QR codes fully obscure the destination URL until your mobile device camera or scanner parses and processes the matrix.</p>
+          </article>
+
+          <!-- Step 03 -->
+          <article class="step-card">
+            <div class="step-header">
+              <div class="step-title-group">
+                <span class="step-num-circle">03</span>
+                <h3 class="step-title">The Threat Handshake</h3>
+              </div>
+              <span class="meta-tag tag-execution">Execution</span>
+            </div>
+            <p>One reflex tap redirects your browser directly to an unwetted endpoint, triggering credential harvesters, rogue profiles, or malicious script execution.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- SECTION 2: RISK ASSESSMENT / WHAT COULD HAVE HAPPENED -->
+      <section id="threats" class="content-section" aria-labelledby="heading-threats">
+        <div class="section-eyebrow-row">
+          <span class="section-eyebrow">Risk Assessment</span>
+        </div>
+        <div class="section-header-row">
+          <h2 id="heading-threats" class="section-heading">What Could Have Happened</h2>
+          <div class="section-icon-badge" aria-hidden="true">
+            <!-- triangle-alert Lucide SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+              <line x1="12" x2="12" y1="9" y2="13"/>
+              <line x1="12" x2="12.01" y1="17" y2="17"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="threat-cards-list">
+          <!-- Threat 1 -->
+          <article class="threat-card">
+            <div class="threat-icon-box" aria-hidden="true">
+              <!-- user Lucide SVG -->
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/>
-                <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/>
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
               </svg>
             </div>
-            <div class="threat-content">
-              <h3>A fake login page stealing your passwords</h3>
-              <p>You land on a spoofed student portal or email login built to harvest your username, index number, and password.</p>
+            <div class="threat-body">
+              <div class="threat-header">
+                <h3 class="threat-title">Fake Login Portal</h3>
+                <span class="severity-tag severity-critical">Critical</span>
+              </div>
+              <p>A replicated KNUST student AIM/portal intercepting student index numbers, institutional emails, and master passwords.</p>
             </div>
           </article>
 
-          <!-- Point 2 -->
-          <article class="threat-item">
-            <div class="icon-box" aria-hidden="true">
-              <!-- download Lucide icon -->
+          <!-- Threat 2 -->
+          <article class="threat-card">
+            <div class="threat-icon-box" aria-hidden="true">
+              <!-- download Lucide SVG -->
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="7 10 12 15 17 10"/>
                 <line x1="12" x2="12" y1="15" y2="3"/>
               </svg>
             </div>
-            <div class="threat-content">
-              <h3>A malicious file download</h3>
-              <p>The link automatically initiates a download of a harmful file or APK that can spy on your device or access private data.</p>
+            <div class="threat-body">
+              <div class="threat-header">
+                <h3 class="threat-title">Malicious Payload</h3>
+                <span class="severity-tag severity-high">High</span>
+              </div>
+              <p>Silent background downloads of trojan APK packages or malicious iOS configuration profiles compromising local storage and contacts.</p>
             </div>
           </article>
 
-          <!-- Point 3 -->
-          <article class="threat-item">
-            <div class="icon-box" aria-hidden="true">
-              <!-- smartphone Lucide icon -->
+          <!-- Threat 3 -->
+          <article class="threat-card">
+            <div class="threat-icon-box" aria-hidden="true">
+              <!-- credit-card / momo Lucide SVG -->
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
-                <path d="M12 18h.01"/>
+                <rect width="20" height="14" x="2" y="5" rx="2"/>
+                <line x1="2" x2="22" y1="10" y2="10"/>
               </svg>
             </div>
-            <div class="threat-content">
-              <h3>A scam payment page</h3>
-              <p>You are directed to an illegitimate payment prompt requesting Mobile Money authorisations or debit card details under false pretences.</p>
+            <div class="threat-body">
+              <div class="threat-header">
+                <h3 class="threat-title">Mobile Money Fraud</h3>
+                <span class="severity-tag severity-severe">Severe</span>
+              </div>
+              <p>Deceptive UI simulating Ghana MoMo (MTN, Telecel, AT) verification dialogs prompting USSD pin approval or instant transfer authorize requests.</p>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- SECTION: HOW TO SCAN SAFELY (5 RULES) -->
-      <section class="section-block" aria-labelledby="heading-safety">
-        <div class="section-header">
-          <span class="section-tag">Prevention</span>
-          <h2 id="heading-safety" class="section-title">How to scan safely</h2>
-          <p class="section-desc">Five practical habits to protect your accounts and devices:</p>
+      <!-- SECTION 3: STANDARD OPERATING PROCEDURE / HOW TO SCAN SAFELY -->
+      <section id="action" class="content-section" aria-labelledby="heading-action">
+        <div class="section-eyebrow-row">
+          <span class="section-eyebrow">Standard Operating Procedure</span>
+        </div>
+        <div class="section-header-row">
+          <h2 id="heading-action" class="section-heading">How to Scan Safely</h2>
+          <span class="rules-pill">5 Rules</span>
         </div>
 
-        <ol class="rules-list">
+        <div class="sop-rules-list">
           <!-- Rule 01 -->
-          <li class="rule-row">
-            <span class="rule-number">01</span>
-            <div class="icon-box" aria-hidden="true">
-              <!-- search Lucide icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"/>
-                <path d="m21 21-4.3-4.3"/>
-              </svg>
+          <article class="sop-rule-card">
+            <div class="rule-tag-badge">Rule 01</div>
+            <div class="sop-rule-body">
+              <h3 class="sop-rule-title">Inspect physical label integrity</h3>
+              <p>Look for raised edges, peeling vinyl, or secondary stickers slapped directly over authentic university signage.</p>
             </div>
-            <div class="rule-content">
-              <h3 class="rule-title">Preview the link before opening it</h3>
-              <p class="rule-text">Modern camera apps display a preview of the destination URL. Verify the exact domain before tapping. Look out for altered spellings such as <code>knust-login.com</code> instead of <code>knust.edu.gh</code>.</p>
-            </div>
-          </li>
+          </article>
 
           <!-- Rule 02 -->
-          <li class="rule-row">
-            <span class="rule-number">02</span>
-            <div class="icon-box" aria-hidden="true">
-              <!-- lock Lucide icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-              </svg>
+          <article class="sop-rule-card">
+            <div class="rule-tag-badge">Rule 02</div>
+            <div class="sop-rule-body">
+              <h3 class="sop-rule-title">Examine the full URL domain</h3>
+              <p>Scrutinize preview links before tapping. Ensure official pages terminate strictly with <code>.edu.gh</code> or <code>knust.edu.gh</code>.</p>
             </div>
-            <div class="rule-content">
-              <h3 class="rule-title">Never enter passwords or payment details after a scan</h3>
-              <p class="rule-text">Legitimate public flyers rarely require entering passwords, MoMo PINs, or card numbers immediately after scanning. If an unexpected prompt appears, close it.</p>
-            </div>
-          </li>
+          </article>
 
           <!-- Rule 03 -->
-          <li class="rule-row">
-            <span class="rule-number">03</span>
-            <div class="icon-box" aria-hidden="true">
-              <!-- layers Lucide icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/>
-                <path d="m22 12.5-8.58 3.91a2 2 0 0 1-1.66 0L2 12.5"/>
-                <path d="m22 17.5-8.58 3.91a2 2 0 0 1-1.66 0L2 17.5"/>
-              </svg>
+          <article class="sop-rule-card">
+            <div class="rule-tag-badge">Rule 03</div>
+            <div class="sop-rule-body">
+              <h3 class="sop-rule-title">Never login via QR redirects</h3>
+              <p>Do not enter campus portal credentials on any destination page loaded straight from a scanned poster.</p>
             </div>
-            <div class="rule-content">
-              <h3 class="rule-title">Check whether a sticker has been placed over another QR code</h3>
-              <p class="rule-text">Attackers frequently paste their own printed stickers directly on top of genuine notices, cafeteria tables, or posters. Inspect for peeling edges or raised tape before scanning.</p>
-            </div>
-          </li>
+          </article>
 
           <!-- Rule 04 -->
-          <li class="rule-row">
-            <span class="rule-number">04</span>
-            <div class="icon-box" aria-hidden="true">
-              <!-- gift Lucide icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="8" width="18" height="4" rx="1"/>
-                <path d="M12 8v13"/>
-                <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/>
-                <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/>
-              </svg>
+          <article class="sop-rule-card">
+            <div class="rule-tag-badge">Rule 04</div>
+            <div class="sop-rule-body">
+              <h3 class="sop-rule-title">Abort surprise download prompts</h3>
+              <p>Authentic public networks never demand manual APK, certificate, or configuration profile installation.</p>
             </div>
-            <div class="rule-content">
-              <h3 class="rule-title">Be suspicious of QR codes promising free data, prizes, or jobs</h3>
-              <p class="rule-text">Offers that seem too generous exist to bypass your caution. Unsolicited promises of cash stipends or free internet packages are common bait used in credential phishing.</p>
-            </div>
-          </li>
+          </article>
 
           <!-- Rule 05 -->
-          <li class="rule-row">
-            <span class="rule-number">05</span>
-            <div class="icon-box" aria-hidden="true">
-              <!-- globe Lucide icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
-                <path d="M2 12h20"/>
-              </svg>
+          <article class="sop-rule-card">
+            <div class="rule-tag-badge">Rule 05</div>
+            <div class="sop-rule-body">
+              <h3 class="sop-rule-title">Verify via official channels</h3>
+              <p>Confirm legitimate WiFi access protocols directly via the University Information Technology Services (UITS) portal.</p>
             </div>
-            <div class="rule-content">
-              <h3 class="rule-title">When in doubt, type the official website yourself</h3>
-              <p class="rule-text">If a flyer references a university announcement, registration, or service, navigate to the verified portal manually in your browser rather than relying on a printed barcode.</p>
-            </div>
-          </li>
-        </ol>
-      </section>
-
-      <!-- SECTION: CALLOUT BANNER -->
-      <section class="section-block" aria-label="Awareness Callout">
-        <div class="callout-box">
-          <div class="callout-header">
-            <div class="icon-box" style="background-color: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.15); color: var(--color-hero-text);" aria-hidden="true">
-              <!-- shield Lucide icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
-              </svg>
-            </div>
-            <h2 class="callout-heading">Think Before You Click</h2>
-          </div>
-          <p class="callout-tagline">Stay Safe in the Digital World</p>
-          <p class="callout-text">
-            Cybersecurity starts with one conscious pause. Share these five habits with colleagues, roommates, and study groups to help keep our campus safe.
-          </p>
-          <button id="shareBtn" class="share-btn" type="button" aria-label="Share these safety tips">
-            <!-- share-2 Lucide icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="18" cy="5" r="3"/>
-              <circle cx="6" cy="12" r="3"/>
-              <circle cx="18" cy="19" r="3"/>
-              <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/>
-              <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
-            </svg>
-            <span>Share Safety Tips</span>
-          </button>
-          <div id="shareFeedback" class="share-feedback" role="status" aria-live="polite"></div>
+          </article>
         </div>
       </section>
 
-      <!-- SECTION: OPTIONAL COLLAPSIBLE LEARN MORE -->
-      <section class="section-block" aria-label="Further Resources">
-        <details class="learn-details">
+      <!-- SECTION 4: CAMPUS SECURITY AXIOM / THINK BEFORE YOU CLICK -->
+      <section class="axiom-card" aria-label="Campus Security Axiom">
+        <span class="axiom-eyebrow">Campus Security Axiom</span>
+        <h2 class="axiom-title">“Think Before You Click.”</h2>
+        <p class="axiom-desc">
+          Spread cybersecurity awareness across halls, hostels, and study hubs. One alert student protects hundreds from coordinated digital theft.
+        </p>
+        <button id="mainShareBtn" class="share-action-btn" type="button" aria-label="Share Awareness Notice">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="18" cy="5" r="3"/>
+            <circle cx="6" cy="12" r="3"/>
+            <circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/>
+            <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
+          </svg>
+          <span>Share Awareness Notice</span>
+        </button>
+        <div id="shareFeedbackToast" class="share-msg-toast" role="status" aria-live="polite"></div>
+      </section>
+
+      <!-- SECTION 5: COLLAPSIBLE WANT TO LEARN MORE -->
+      <section aria-label="Further Resources">
+        <details class="learn-accordion">
           <summary class="learn-summary">
             <span>Want to learn more?</span>
-            <!-- chevron-down Lucide icon -->
             <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="m6 9 6 6 6-6"/>
             </svg>
           </summary>
-          <div class="learn-body">
-            <p>Recommended guides and campus security contacts:</p>
-            <ul class="resource-list">
-              <li class="resource-item">
-                <a href="#gmsa-it-media" target="_blank" rel="noopener noreferrer">
+          <div class="learn-content">
+            <p>Helpful security resources and guidance:</p>
+            <ul class="resources-list">
+              <li class="resource-row">
+                <a href="#gmsa-desk" target="_blank" rel="noopener noreferrer">
                   <span>GMSA-KNUST IT &amp; Media Resource Desk</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M7 7h10v10"/>
                     <path d="M7 17 17 7"/>
                   </svg>
                 </a>
-                <span class="resource-pill">Student Wing</span>
+                <span class="resource-tag">Student Wing</span>
               </li>
-              <li class="resource-item">
+              <li class="resource-row">
                 <a href="https://www.csa.gov.gh" target="_blank" rel="noopener noreferrer">
                   <span>Cyber Security Authority (CSA) Ghana</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -899,27 +1191,17 @@
                     <path d="M7 17 17 7"/>
                   </svg>
                 </a>
-                <span class="resource-pill">National Agency</span>
+                <span class="resource-tag">National Agency</span>
               </li>
-              <li class="resource-item">
-                <a href="#campus-reporting" target="_blank" rel="noopener noreferrer">
-                  <span>Reporting Suspicious QR Codes on Campus</span>
+              <li class="resource-row">
+                <a href="#report-quishing" target="_blank" rel="noopener noreferrer">
+                  <span>Reporting Suspicious QR Stickers on Campus</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M7 7h10v10"/>
                     <path d="M7 17 17 7"/>
                   </svg>
                 </a>
-                <span class="resource-pill">Support</span>
-              </li>
-              <li class="resource-item">
-                <a href="#quishing-guide" target="_blank" rel="noopener noreferrer">
-                  <span>Understanding Quishing (QR Phishing)</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M7 7h10v10"/>
-                    <path d="M7 17 17 7"/>
-                  </svg>
-                </a>
-                <span class="resource-pill">Documentation</span>
+                <span class="resource-tag">KNUST Helpdesk</span>
               </li>
             </ul>
           </div>
@@ -932,65 +1214,149 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p class="footer-org">An initiative of GMSA-KNUST IT &amp; Media</p>
-      <p class="footer-sub">Cybersecurity Awareness Month · October 2026</p>
-      <p class="footer-privacy">
-        We only count total visits to this page. No names, accounts, or personal details are collected, and no cookies are used.
-      </p>
+      <div class="footer-logos-container">
+        <img src="assets/gmsa-logo.png" alt="GMSA-KNUST Logo" class="footer-logo-img" width="48" height="48">
+        <img src="assets/it-media-logo.png" alt="GMSA IT &amp; Media Committee Logo" class="footer-logo-img" width="120" height="48">
+      </div>
+      <p class="footer-published">Published by GMSA-KNUST IT &amp; Media (Ghana)</p>
+      <p class="footer-event">Cybersecurity Awareness Month · October 2026</p>
+      <div class="footer-privacy-box">
+        Privacy Notice: We only count total visits to this page. No names, accounts, or personal details are collected, and no cookies are used.
+      </div>
     </div>
   </footer>
 
-  <!-- VANILLA JS: SHARE & CLIPBOARD INTERACTION -->
+  <!-- BOTTOM MOBILE NAVIGATION (ANCHOR LINKS WITH ACTIVE HIGHLIGHT) -->
+  <nav class="bottom-nav" aria-label="Mobile Navigation">
+    <a href="#advisory" class="nav-tab active" data-target="advisory">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+      </svg>
+      <span>Advisory</span>
+    </a>
+    <a href="#threats" class="nav-tab" data-target="threats">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="22" x2="18" y1="12" y2="12"/>
+        <line x1="6" x2="2" y1="12" y2="12"/>
+        <line x1="12" x2="12" y1="6" y2="2"/>
+        <line x1="12" x2="12" y1="22" y2="18"/>
+      </svg>
+      <span>Threats</span>
+    </a>
+    <a href="#action" class="nav-tab" data-target="action">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="4" x2="20" y1="9" y2="9"/>
+        <line x1="4" x2="20" y1="15" y2="15"/>
+        <line x1="10" x2="10" y1="3" y2="21"/>
+        <line x1="16" x2="16" y1="3" y2="21"/>
+      </svg>
+      <span>Action</span>
+    </a>
+    <button id="bottomNavShareBtn" class="nav-tab" type="button" aria-label="Share Notice">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="18" cy="5" r="3"/>
+        <circle cx="6" cy="12" r="3"/>
+        <circle cx="18" cy="19" r="3"/>
+        <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/>
+        <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
+      </svg>
+      <span>Share</span>
+    </button>
+  </nav>
+
+  <!-- LIGHTWEIGHT VANILLA JS: SHARE & SCROLL SPY -->
   <script>
     (function () {
-      const shareBtn = document.getElementById('shareBtn');
-      const shareFeedback = document.getElementById('shareFeedback');
-
-      if (!shareBtn) return;
+      // Share functionality
+      const mainShareBtn = document.getElementById('mainShareBtn');
+      const bottomNavShareBtn = document.getElementById('bottomNavShareBtn');
+      const desktopShareBtn = document.getElementById('desktopShareBtn');
+      const shareToast = document.getElementById('shareFeedbackToast');
 
       const shareData = {
         title: 'Think Before You Scan | GMSA-KNUST Cybersecurity Month',
-        text: 'Looking for free WiFi? Be careful when scanning random QR codes on campus. Here are 5 habits to protect your accounts:',
+        text: 'Looking for free WiFi? Discover how quishing attacks work and how to stay safe from rogue QR codes on campus:',
         url: window.location.href
       };
 
-      shareBtn.addEventListener('click', async function () {
+      async function triggerShare() {
         if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
           try {
             await navigator.share(shareData);
-            setFeedback('Link shared successfully.');
+            showFeedback('Notice shared successfully.');
           } catch (err) {
             if (err.name !== 'AbortError') {
-              fallbackCopy();
+              fallbackClipboard();
             }
           }
         } else {
-          fallbackCopy();
+          fallbackClipboard();
         }
-      });
+      }
 
-      function fallbackCopy() {
+      function fallbackClipboard() {
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(window.location.href)
             .then(function () {
-              setFeedback('Link copied to clipboard.');
+              showFeedback('Link copied to clipboard.');
             })
             .catch(function () {
-              setFeedback('Link: ' + window.location.href);
+              showFeedback('Share link: ' + window.location.href);
             });
         } else {
-          setFeedback('Link: ' + window.location.href);
+          showFeedback('Share link: ' + window.location.href);
         }
       }
 
-      function setFeedback(msg) {
-        if (shareFeedback) {
-          shareFeedback.textContent = msg;
+      function showFeedback(msg) {
+        if (shareToast) {
+          shareToast.textContent = msg;
           setTimeout(function () {
-            shareFeedback.textContent = '';
-          }, 4000);
+            shareToast.textContent = '';
+          }, 3500);
         }
       }
+
+      if (mainShareBtn) mainShareBtn.addEventListener('click', triggerShare);
+      if (bottomNavShareBtn) bottomNavShareBtn.addEventListener('click', triggerShare);
+      if (desktopShareBtn) desktopShareBtn.addEventListener('click', triggerShare);
+
+      // Smooth scroll & scroll spy for active navigation state
+      const sections = ['advisory', 'threats', 'action'];
+      const navTabs = document.querySelectorAll('.bottom-nav .nav-tab[data-target]');
+      const desktopLinks = document.querySelectorAll('.desktop-nav-link');
+
+      function onScroll() {
+        const scrollPosition = window.scrollY + 120;
+        let currentSection = sections[0];
+
+        for (let i = 0; i < sections.length; i++) {
+          const el = document.getElementById(sections[i]);
+          if (el && el.offsetTop <= scrollPosition) {
+            currentSection = sections[i];
+          }
+        }
+
+        navTabs.forEach(function (tab) {
+          if (tab.getAttribute('data-target') === currentSection) {
+            tab.classList.add('active');
+          } else {
+            tab.classList.remove('active');
+          }
+        });
+
+        desktopLinks.forEach(function (link) {
+          if (link.getAttribute('href') === '#' + currentSection) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
     })();
   </script>
 </body>
